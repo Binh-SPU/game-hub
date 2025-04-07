@@ -13,13 +13,9 @@ function App() {
         <NavBar />
       </GridItem>
       <Box display={{ base: "none", lg: "block" }}>
-        <GridItem area="aside" bg={"gold"}>
-          Aside
-        </GridItem>
+        <GridItem area="aside">Aside</GridItem>
       </Box>
-      <GridItem area="main" bg={"dodgerblue"}>
-        Main
-      </GridItem>
+      <GridItem area="main">Main</GridItem>
     </Grid>
   );
 }
