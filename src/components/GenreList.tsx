@@ -11,9 +11,10 @@ import {
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: GenreListProps) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -34,6 +35,7 @@ const GenreList = ({ onSelectGenre }: GenreListProps) => {
                 onClick={() => onSelectGenre(genre)}
                 variant="link"
                 fontSize="lg"
+                fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
               >
                 {genre.name}
               </Button>
