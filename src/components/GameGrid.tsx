@@ -27,8 +27,8 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
             <GameCardSkeleton />
           </GameCardContainer>
         ))}
-      {!isLoading && data.length === 0 && <Text>No games found</Text>}
-      {data.map((game) => (
+      {!isLoading && data?.results.length === 0 && <Text>No games found</Text>}
+      {data?.results.map((game) => (
         <GameCardContainer key={game.id}>
           <GameCard game={game} />
         </GameCardContainer>
