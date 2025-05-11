@@ -13,12 +13,7 @@ const apiClient = new ApiClient<Genre>("/genres");
 const useGenres = () =>
   useQuery<FetchReponse<Genre>, Error>(["genres"], apiClient.getAll, {
     staleTime: 1000 * 60 * 60 * 24,
-    initialData: {
-      count: genres.length,
-      results: genres,
-      next: null,
-      previous: null,
-    },
+    initialData: genres,
   });
 
 export default useGenres;
