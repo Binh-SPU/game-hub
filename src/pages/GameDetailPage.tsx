@@ -1,9 +1,23 @@
-import React from 'react'
+import useGame from "@/hooks/useGame";
+import { Text } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
+import { Spinner } from "@chakra-ui/react";
+import { useParams } from "react-router-dom";
 
 const GameDetailPage = () => {
-  return (
-    <div>GameDetailPage</div>
-  )
-}
+  const { slug } = useParams();
+  const { data: game, isLoading, error } = useGame(slug!); //slug is a string, so we can use the non-null assertion operator (!)
 
-export default GameDetailPage
+  if (isLoading) return <Spinner />;
+
+  if (error || !game) throw error;
+
+  return (
+    <>
+      <Heading>{game.name}</Heading>
+      <Text>{game.description_raw}</Text>
+    </>
+  );
+};
+
+export default GameDetailPage;
