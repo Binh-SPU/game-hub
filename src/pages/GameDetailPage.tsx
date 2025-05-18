@@ -1,3 +1,4 @@
+import ExpandableText from "@/components/ExpandableText";
 import useGame from "@/hooks/useGame";
 import { Text } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
@@ -15,7 +16,7 @@ const GameDetailPage = () => {
   return (
     <>
       <Heading>{game.name}</Heading>
-      <Text>{game.description_raw}</Text>
+      <ExpandableText>{game.description_raw}</ExpandableText>
     </>
   );
 };
