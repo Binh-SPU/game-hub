@@ -9,7 +9,7 @@ interface GameScreenshotsProps {
 const GameScreenshots = ({ gameId }: GameScreenshotsProps) => {
   const { data, isLoading, error } = useScreenshots(gameId);
 
-  if (isLoading) return;
+  if (isLoading) return null;
   if (error) throw error;
 
   return (
